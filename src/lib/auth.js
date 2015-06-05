@@ -1,7 +1,10 @@
 'use strict';
 
-var validator = require('./validate'),
-    ComposerError = require('./composerError');
+var namespace = require('require-namespace');
+
+//CompoSR modules
+var validator = namespace.lib.validate,
+  ComposerError = namespace.lib.composerError;
 
 var getAuth = function(req) {
 	validator.isValue(req, 'undefined:req');
@@ -10,7 +13,7 @@ var getAuth = function(req) {
 
     if (!auth) {
         throw new ComposerError('missing:header:authorization', 'Authorization header not found', 401);
-    } 
+    }
 
     return auth;
 };

@@ -1,10 +1,13 @@
 'use strict';
 
 var corbel = require('corbel-js'),
-    config = require('./config'),
     _ = require('lodash'),
-    ComposerError = require('./composerError'),
-    logger = require('../utils/logger');
+    namespace = require('require-namespace');
+
+//CompoSR modules
+var ComposerError = namespace.lib.composerError,
+    config = namespace.lib.config,
+    logger = namespace.utils.logger;
 
 var PHRASES_COLLECTION = 'composr:Phrase';
 
@@ -20,6 +23,8 @@ var onConnectPromise = corbelDriver.iam.token().create().then(function() {
     logger.error('error:composer:corbel:token', error);
     throw new ComposerError('error:composer:corbel:token', '', 401);
 });
+
+
 
 var extractDomain = function(accessToken) {
     var atob = require('atob');

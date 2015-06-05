@@ -2,7 +2,10 @@
 
 var _ = require('lodash'),
     fs = require('fs'),
-    ComposerError = require('./composerError');
+    namespace = require('require-namespace');
+
+//CompoSR modules
+var ComposerError = namespace.lib.composerError;
 
 var env = process.env.NODE_ENV || 'development';
 var config = require('../config/config.json');

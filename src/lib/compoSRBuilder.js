@@ -1,7 +1,9 @@
 'use strict';
 
-var snippetsBundler = require('./snippetsBundler');
+var namespace = require('require-namespace');
 
+//CompoSR modules
+var snippetsBundler = namespace.lib.snippetsBundler;
 /**
  Returns the snippets runner for being embebed into the phrases executions
 **/
@@ -24,7 +26,11 @@ function getCompoSR(domain){
         name : 'json',
         code: 'params.res.send({ hello2 : params.message})'
       }
-    ]
+    ],
+
+    'composr' : {
+
+    }
   };
 
   return snippetsBundler.getRunner(domain, snippets);

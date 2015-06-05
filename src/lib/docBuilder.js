@@ -1,10 +1,13 @@
 'use strict';
 
-var config = require('./config'),
-    raml = require('raml-parser'),
+var raml = require('raml-parser'),
     YAML = require('yamljs'),
-    validate = require('./validate'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    namespace = require('require-namespace');
+
+//CompoSR modules
+var config = namespace.lib.config,
+  validate = namespace.lib.validate;
 
 var buildPhraseDefinition = function(phrase) {
     var doc = {};

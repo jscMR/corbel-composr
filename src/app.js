@@ -1,20 +1,24 @@
 'use strict';
 
+//External modules
 var express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
     morgan = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    engine = require('./lib/engine'),
-    ComposerError = require('./lib/composerError'),
-    config = require('./lib/config'),
     timeout = require('connect-timeout'),
     responseTime = require('response-time'),
     cors = require('cors'),
     corbel = require('corbel-js'),
     fs = require('fs'),
+    namespace = require('require-namespace'),
     app = express();
+
+//CompoSR modules
+var engine = namespace.lib.engine,
+    ComposerError = namespace.lib.composerError,
+    config = namespace.lib.config;
 
 var ERROR_CODE_SERVER_TIMEOUT = 503;
 var DEFAULT_TIMEOUT = 10000;

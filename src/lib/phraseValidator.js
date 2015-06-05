@@ -2,10 +2,13 @@
 
 /* jshint evil:true */
 
-var validator = require('./validate'),
-    check = require('syntax-error'),
-    docBuilder = require('./docBuilder'),
-    ComposerError = require('./composerError');
+var check = require('syntax-error'),
+    namespace = require('require-namespace');
+
+//CompoSR modules
+var docBuilder = namespace.lib.docBuilder,
+    ComposerError = namespace.lib.composerError,
+    validator = namespace.lib.validate;
 
 /**
  * Validates if a phrase is well formed

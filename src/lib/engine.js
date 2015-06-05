@@ -1,8 +1,11 @@
 'use strict';
 
-var bootstrap = require('./bootstrap'),
-    worker = require('./worker'),
-    routes = require('../routes');
+var namespace = require('require-namespace');
+
+//CompoSR modules
+var worker = namespace.lib.worker,
+    bootstrap = namespace.lib.bootstrap,
+    routes = namespace.routes;
 
 //Add necesary middlewares to express
 function middlewares(app){

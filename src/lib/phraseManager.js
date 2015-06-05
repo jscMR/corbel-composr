@@ -1,16 +1,21 @@
 'use strict';
 
 
-var validate = require('./validate'),
-    corbel = require('corbel-js'),
-    config = require('./config'),
-    phrases = require('./phrasesData'),
-    ComposerError = require('./composerError'),
-    compoSRBuilder = require('./compoSRBuilder'),
+var corbel = require('corbel-js'),
     tripwire = require('tripwire'),
-    logger = require('../utils/logger'),
     _ = require('lodash'),
-    q = require('q');
+    q = require('q'),
+    namespace = require('require-namespace');
+
+//CompoSR modules
+var config = namespace.lib.config,
+    ComposerError = namespace.lib.composerError,
+    compoSRBuilder = namespace.lib.compoSRBuilder,
+    logger = namespace.utils.logger,
+    validate = namespace.lib.validate,
+    phrases = namespace.lib.phrasesData;
+
+
 
 var executePhrase = function executePhrase(context, compoSR, phraseBody){
   var domain = require('domain').create();

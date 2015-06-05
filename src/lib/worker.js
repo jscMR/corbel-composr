@@ -1,14 +1,17 @@
 'use strict';
 
-var phraseManager = require('./phraseManager'),
-  connection = require('./corbelConnection'),
-  express = require('express'),
+var express = require('express'),
   router = express.Router(),
   amqp = require('amqplib'),
   uuid = require('uuid'),
-  ComposerError = require('./composerError'),
-  config = require('./config'),
-  logger = require('../utils/logger');
+  namespace = require('require-namespace');
+
+//CompoSR modules
+var config = namespace.lib.config,
+  ComposerError = namespace.lib.composerError,
+  connection = namespace.lib.corbelConnection,
+  phraseManager = namespace.lib.phraseManager,
+  logger = namespace.utils.logger;
 
 var worker = function() {
 

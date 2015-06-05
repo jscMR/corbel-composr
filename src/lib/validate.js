@@ -1,6 +1,10 @@
 'use strict';
 
-var ComposerError = require('../lib/composerError');
+var namespace = require('require-namespace');
+
+//CompoSR modules
+var ComposerError = namespace.lib.composerError;
+
 /**
  * Checks if some value is not undefined
  * @param  {Mixed}  value

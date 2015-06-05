@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 var debug = require('debug')('expressapp');
+
+var namespace = require('require-namespace');
+
+namespace.createSync(__dirname + '/../src/lib/', 'lib');
+namespace.createSync(__dirname + '/../src/utils/', 'utils');
+namespace.createSync(__dirname + '/../src/config/', 'config');
+namespace.createSync(__dirname + '/../src/routes/', 'routes');
+
 var app = require('../src/app');
 
 app.set('port', process.env.PORT || 3000);

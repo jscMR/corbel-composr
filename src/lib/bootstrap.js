@@ -2,12 +2,15 @@
 
 var express = require('express'),
   router = express.Router(),
-  phraseManager = require('./phraseManager'),
-  ComposerError = require('./composerError'),
-  connection = require('./corbelConnection'),
   q = require('q'),
-  config = require('./config'),
-  logger = require('../utils/logger');
+  namespace = require('require-namespace');
+
+//CompoSR modules
+var phraseManager = namespace.lib.phraseManager,
+    connection = namespace.lib.corbelConnection,
+    ComposerError = namespace.lib.composerError,
+    config = namespace.lib.config,
+    logger = namespace.utils.logger;
 
 var PAGE_SIZE = 10;
 
